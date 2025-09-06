@@ -1,0 +1,279 @@
+## File: index.html
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Site — Fast. Private. Simple.</title>
+  <meta name="description" content="A blazing-fast, privacy-friendly website." />
+
+  <!-- Basic SEO -->
+  <link rel="canonical" href="https://www.yourdomain.com/" />
+  <meta property="og:title" content="Your Site" />
+  <meta property="og:description" content="A blazing-fast, privacy-friendly website." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.yourdomain.com/" />
+  <meta property="og:image" content="/img/og.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon (placeholder) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+  <!-- Preload + fonts (self-hosted recommended) -->
+  <link rel="preload" href="/css/styles.css" as="style" />
+  <link rel="stylesheet" href="/css/styles.css" />
+
+  <!-- Security (extra hardening via platform headers) -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+
+  <!-- GoatCounter (optional). Replace YOURID. Remove if not used. -->
+  <script data-goatcounter="https://YOURID.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">YourBrand</a>
+      <nav class="nav">
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <button id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Build it clean. Ship it fast.</h1>
+        <p>Tier 1.5 stack: enterprise feel, shoestring budget.</p>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </section>
+
+    <section id="features" class="features container">
+      <article>
+        <h2>⚡ Speed-first</h2>
+        <p>Static HTML + CDN → sub-1s loads with minimal JS.</p>
+      </article>
+      <article>
+        <h2>🔒 Private & Secure</h2>
+        <p>No trackers by default. Strong headers, HTTPS everywhere.</p>
+      </article>
+      <article>
+        <h2>🧩 Extensible</h2>
+        <p>Add pages, Markdown, or an API later without replatforming.</p>
+      </article>
+    </section>
+
+    <section id="about" class="container about">
+      <h2>About</h2>
+      <p>This starter keeps your running costs tiny while delivering top-tier UX. Fork it, brand it, scale it.</p>
+    </section>
+
+    <section id="contact" class="container contact">
+      <h2>Contact</h2>
+      <form action="https://formspree.io/f/YOUR_ENDPOINT" method="POST" class="card" id="contactForm">
+        <label>
+          <span>Name</span>
+          <input type="text" name="name" required autocomplete="name" />
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" required autocomplete="email" />
+        </label>
+        <label>
+          <span>Message</span>
+          <textarea name="message" required rows="5"></textarea>
+        </label>
+        <!-- Honeypot field -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+        <button type="submit" class="btn">Send</button>
+        <p class="form-status" aria-live="polite" id="formStatus"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> YourBrand. All rights reserved.</small>
+      <a href="/privacy.html">Privacy</a>
+    </div>
+  </footer>
+
+  <script src="/js/script.js" defer></script>
+</body>
+</html>
+```
+
+---
+
+## File: css/styles.css
+```css
+:root { --bg: #ffffff; --fg: #111111; --muted: #6b7280; --primary: #0ea5e9; }
+:root.dark { --bg: #0b0f14; --fg: #e5e7eb; --muted: #9ca3af; --primary: #38bdf8; }
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: var(--bg); color: var(--fg); }
+.container { max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
+.site-header, .site-footer { border-bottom: 1px solid #e5e7eb20; backdrop-filter: saturate(120%) blur(6px); }
+.site-header .container, .site-footer .container { display: flex; align-items: center; justify-content: space-between; padding: .75rem 1rem; }
+.brand { font-weight: 700; text-decoration: none; color: var(--fg); }
+.nav a { margin-left: 1rem; text-decoration: none; color: var(--fg); opacity: .8; }
+.nav a:hover { opacity: 1; }
+.hero { padding: 6rem 0 4rem; background: radial-gradient(1200px 500px at 50% -200px, #38bdf820, transparent); }
+.hero h1 { font-size: clamp(2rem, 4vw, 3rem); margin: 0 0 .5rem; }
+.btn { display: inline-block; background: var(--primary); color: white; padding: .7rem 1rem; border-radius: .7rem; text-decoration: none; border: 0; cursor: pointer; }
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; padding: 2rem 0; }
+.features article { border: 1px solid #e5e7eb30; border-radius: 1rem; padding: 1rem; background: #ffffff10; }
+.about, .contact { padding: 2rem 0; }
+.card { border: 1px solid #e5e7eb30; border-radius: 1rem; padding: 1rem; background: #ffffff08; }
+label { display: block; margin-bottom: .8rem; }
+label span { display: block; font-size: .9rem; color: var(--muted); margin-bottom: .3rem; }
+input, textarea { width: 100%; padding: .7rem .8rem; border-radius: .6rem; border: 1px solid #e5e7eb60; background: #fff; color: #111; }
+:root.dark input, :root.dark textarea { background: #0f172a; color: #e5e7eb; border-color: #1f2937; }
+.form-status { margin-top: .6rem; font-size: .9rem; color: var(--muted); }
+.site-footer a { color: var(--muted); text-decoration: none; }
+@media (prefers-color-scheme: dark) { :root { color-scheme: dark; } :root:not(.light) { color-scheme: dark; } }
+```
+
+---
+
+## File: js/script.js
+```js
+(function(){
+  // Year
+  const y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+
+  // Theme toggle (system-aware)
+  const root = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  const stored = localStorage.getItem('theme');
+  if (stored) root.classList.toggle('dark', stored === 'dark');
+  btn && btn.addEventListener('click', () => {
+    const dark = root.classList.toggle('dark');
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+  });
+
+  // Contact form progressive enhancement
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+  if (form && status) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.textContent = 'Sending…';
+      const data = new FormData(form);
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+        if (res.ok) {
+          status.textContent = 'Thanks! I\'ll get back to you soon.';
+          form.reset();
+        } else {
+          status.textContent = 'Hmm, something went wrong. You can email me directly.';
+        }
+      } catch (err) {
+        status.textContent = 'Network error. Please try again later.';
+      }
+    });
+  }
+})();
+```
+
+---
+
+## File: privacy.html (stub)
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Privacy Policy</h1>
+    <p>We collect the minimum necessary information to operate this site. We do not use invasive third‑party trackers. Contact form submissions are processed by our form provider and emailed to us. For questions, email <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a>.</p>
+  </main>
+</body>
+</html>
+```
+
+---
+
+## File: netlify.toml (if using Netlify)
+```toml
+[build]
+  publish = "/"
+
+[[headers]]
+  for = "/"
+  [headers.values]
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(self)"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(self)"
+```
+
+---
+
+## File: vercel.json (if using Vercel)
+```json
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {"key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload"},
+        {"key": "X-Content-Type-Options", "value": "nosniff"},
+        {"key": "X-Frame-Options", "value": "DENY"},
+        {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"},
+        {"key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(self)"}
+      ]
+    }
+  ]
+}
+```
+
+---
+
+## File: security-headers.txt (for reference)
+```
+Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Referrer-Policy: strict-origin-when-cross-origin
+Permissions-Policy: camera=(), microphone=(), geolocation=(self)
+```
+
+---
+
+## Suggested repo structure
+```
+site/
+  index.html
+  privacy.html
+  css/
+    styles.css
+  js/
+    script.js
+  img/
+    og.jpg (1200x630)
+  vercel.json (or netlify.toml)
+  setup.md
+  security-headers.txt
+```
