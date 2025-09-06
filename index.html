@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Building Our Better Future</title>
+  <meta name="description" content="A blazing-fast, privacy-friendly website for a better future." />
+
+  <!-- Basic SEO -->
+  <link rel="canonical" href="https://buildingourbetterfuture.pro/" />
+  <meta property="og:title" content="Building Our Better Future" />
+  <meta property="og:description" content="A blazing-fast, privacy-friendly website for a better future." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://buildingourbetterfuture.pro/" />
+  <meta property="og:image" content="/img/og.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+
+  <!-- Styles -->
+  <link rel="preload" href="/css/styles.css" as="style" />
+  <link rel="stylesheet" href="/css/styles.css" />
+
+  <!-- Security meta (extra hardening also in vercel.json) -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+
+  <!-- GoatCounter analytics (privacy-friendly) -->
+  <script
+    data-goatcounter="https://nameansomuch.goatcounter.com/count"
+    async src="//gc.zgo.at/count.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">BetterFuture</a>
+      <nav class="nav">
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <button id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Together, We Build a Better Future</h1>
+        <p>Fast, private, sustainable, and people-first.</p>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </section>
+
+    <section id="features" class="features container">
+      <article>
+        <h2>⚡ Speed-first</h2>
+        <p>Static HTML + CDN → sub-1s loads with minimal JS.</p>
+      </article>
+      <article>
+        <h2>🔒 Private & Secure</h2>
+        <p>No trackers by default. Strong headers, HTTPS everywhere.</p>
+      </article>
+      <article>
+        <h2>🌍 Sustainable</h2>
+        <p>Simple design, lightweight code, eco-friendly hosting.</p>
+      </article>
+    </section>
+
+    <section id="about" class="container about">
+      <h2>About</h2>
+      <p>This starter keeps your running costs tiny while delivering top-tier UX. Fork it, brand it, scale it. Our mission: building our better future together.</p>
+      <img src="/img/og.svg" alt="Vision of a better future: hills, sun, clean energy" style="max-width:100%; border-radius:1rem; margin-top:1rem;" />
+    </section>
+
+    <section id="contact" class="container contact">
+      <h2>Contact</h2>
+      <form action="https://formspree.io/f/xdklyezl" method="POST" class="card" id="contactForm">
+        <input type="hidden" name="_subject" value="New message from BetterFuture site" />
+        <!-- Honeypot -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+        <label>
+          <span>Name</span>
+          <input type="text" name="name" required autocomplete="name" />
+        </label>
+        <label>
+          <span>Email</span>
+          <input type="email" name="email" required autocomplete="email" />
+        </label>
+        <label>
+          <span>Message</span>
+          <textarea name="message" required rows="5"></textarea>
+        </label>
+        <button type="submit" class="btn">Send</button>
+        <p class="form-status" aria-live="polite" id="formStatus"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> BuildingOurBetterFuture. All rights reserved.</small>
+      <a href="/privacy.html">Privacy</a>
+    </div>
+  </footer>
+
+  <script src="/js/script.js" defer></script>
+</body>
+</html>
